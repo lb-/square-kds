@@ -3,10 +3,9 @@
     <div class="content">
       <i class="right floated {{#if getIsOld}}warning{{else}}star{{/if}} icon"></i>
       <div class="header">
-        Elliot Fu
-        <small>{{moFromNow getCreatedAt}}</small>
+        {{moFromNow getCreatedAt}}
       </div>
-      <div class="extra content">
+      <div class="description">
         <div class="ui divided list">
           {{#each items}}
             {{> ticketItem}}
@@ -15,14 +14,14 @@
       </div>
     </div>
     {{#if cleared}}
-    <div class="ui bottom attached button">
-      <i class="remove icon"></i>
-      Clear
-    </div>
-    {{else}}
-    <div class="ui bottom attached button">
+    <div class="ui bottom attached button" data-action="recall-ticket">
       <i class="plus icon"></i>
       Recall
+    </div>
+    {{else}}
+    <div class="ui bottom attached button" data-action="clear-ticket">
+      <i class="remove icon"></i>
+      Clear
     </div>
     {{/if}}
   </div>

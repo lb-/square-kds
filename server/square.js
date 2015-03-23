@@ -5,7 +5,7 @@ Meteor.methods({
   square: function () {
     console.log('square');
     var headers = {
-      Authorization: 'Bearer ' + squareAccessToken,
+      Authorization: 'Bearer ' + app.squareAccessToken,
       Accept: 'application/json',
     };
     var options = {
@@ -15,20 +15,24 @@ Meteor.methods({
       if (error) {
         console.log(error);
       } else {
-        var total = 0;
+        var totals = {inserted: 0, updated: 0};
         //console.log(result.content);
 
         _.each(result.data, function (payment) {
 
           payment._id = payment.id;
-          if (! db.Payments.findOne({_id: payment._id})) {
+          var existingPayment = db.Payments.findOne({_id: payment._id});
+          if (existingPayment) {
+            db.Payments.update({_id: existingPayment._id}, {$set: payment});
+            totals.updated += 1;
+          } else {
             db.Payments.insert(payment);
-            total += 1;
+            totals.inserted += 1;
           }
 
         });
 
-        console.log('total', total);
+        console.log('totals', totals);
       }
     });
   }
