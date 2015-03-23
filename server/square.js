@@ -20,12 +20,12 @@ Meteor.methods({
 
         _.each(result.data, function (payment) {
 
-          payment._id = payment.id;
-          var existingPayment = db.Payments.findOne({_id: payment._id});
+          var existingPayment = db.Payments.findOne({_id: payment.id});
           if (existingPayment) {
             db.Payments.update({_id: existingPayment._id}, {$set: payment});
             totals.updated += 1;
           } else {
+            payment._id = payment.id;
             db.Payments.insert(payment);
             totals.inserted += 1;
           }
