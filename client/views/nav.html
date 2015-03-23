@@ -1,0 +1,25 @@
+<template name="nav">
+  <div class="ui large inverted menu">
+    <div class="header item">
+      {{appTitle}}
+    </div>
+    <div class="item">
+      {{currentOrders}}
+    </div>
+    <div class="right menu">
+      <div class="item">
+        <div class="ui buttons">
+          <div class="ui {{#if viewingCurrent}}positive{{/if}} button"
+            data-action="change-view" data-view="current" >
+            Current
+          </div>
+          <div class="or"></div>
+          <div class="ui {{#unless viewingCurrent}}positive{{/unless}} button"
+            data-action="change-view" data-view="cleared" >
+            Cleared
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

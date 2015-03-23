@@ -7,29 +7,10 @@
 
 <template name="layout">
   {{> nav}}
-  {{> yield}}
+  {{> main}}
 </template>
 
-<template name="nav">
-  <div class="ui large inverted menu">
-    <div class="header item">
-      {{appTitle}}
-    </div>
-    <div class="item">
-      0 Orders Incoming
-    </div>
-    <div class="right menu">
-      <a class="item active">
-        Incoming
-      </a>
-      <a class="item">
-        Cleared
-      </a>
-    </div>
-  </div>
-</template>
-
-<template name="home">
+<template name="main">
   <div class="ui cards">
     {{#each tickets}}
       {{>ticket}}
