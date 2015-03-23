@@ -1,0 +1,38 @@
+<head>
+  <title>Sqaure KDS</title>
+</head>
+<body>
+  {{>layout}}
+</body>
+
+<template name="layout">
+  {{> nav}}
+  {{> yield}}
+</template>
+
+<template name="nav">
+  <div class="ui large inverted menu">
+    <div class="header item">
+      Store Name
+    </div>
+    <div class="item">
+      0 Orders Incoming
+    </div>
+    <div class="right menu">
+      <a class="item active">
+        Incoming
+      </a>
+      <a class="item">
+        Cleared
+      </a>
+    </div>
+  </div>
+</template>
+
+<template name="home">
+  <div class="ui cards">
+    {{#each tickets}}
+      {{>ticket}}
+    {{/each}}
+  </div>
+</template>
