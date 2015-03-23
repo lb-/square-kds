@@ -10,4 +10,5 @@ momentjs:moment
 lbee:moment-helpers
 dburles:collection-helpers
 meteorhacks:picker
-nooitaf:semantic-ui
+jquery
+semantic:ui-css
