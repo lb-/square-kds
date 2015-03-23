@@ -1,0 +1,20 @@
+<template name="ticketItem">
+  <div class="item">
+    <i class="circle thin icon"></i>
+    <div class="content">
+      <div class="header">{{qty}} x {{name}}</div>
+      <div class="description">
+        <div class="ui horizontal list">
+          <div class="item">
+            {{itemCategory}}
+          </div>
+          {{#each modifiers}}
+          <div class="item">
+            {{name}}
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
