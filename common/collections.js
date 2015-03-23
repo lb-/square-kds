@@ -21,7 +21,7 @@ db.Payments.helpers({
 
 db.Payments.allow({
   update: function (userId, doc, fieldNames) {
-    console.log(fieldNames, fieldNames === ['cleared']);
+    // console.log(fieldNames, fieldNames === ['cleared']);
     // the user must be logged in, and the only field editable is 'cleared'
     // if (userId && (fieldNames === ['cleared'])) {
     if ((fieldNames[0] === 'cleared') && (fieldNames.length === 1)) {

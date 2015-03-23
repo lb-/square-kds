@@ -2,6 +2,9 @@
 
 Template.main.onCreated(function () {
   this.subscribe('payments', {});
+  Meteor.setInterval(function () {
+    Meteor.call('squareGetPayments')
+  }, 5000);
 });
 
 Template.main.helpers({
@@ -12,7 +15,7 @@ Template.main.helpers({
     if (viewing === 'cleared') {
       query = {cleared: true};
     }
-    console.log('query', query);
+    // console.log('query', query);
     // var count = db.Payments.find(query).count();
     return db.Payments.find(query, options).fetch();
   }

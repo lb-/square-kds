@@ -2,7 +2,7 @@
 var squareUrl = 'https://connect.squareup.com/v1/me/';
 
 Meteor.methods({
-  square: function () {
+  squareGetPayments: function () {
     console.log('square');
     var headers = {
       Authorization: 'Bearer ' + app.squareAccessToken,
@@ -33,6 +33,23 @@ Meteor.methods({
         });
 
         console.log('totals', totals);
+      }
+    });
+  },
+  squareGetWebhooks: function () {
+    console.log('square');
+    var headers = {
+      Authorization: 'Bearer ' + app.squareAccessToken,
+      Accept: 'application/json',
+    };
+    var options = {
+      headers: headers
+    }
+    HTTP.call('GET', squareUrl + 'webhooks', options, function (error, result) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log(result.data);
       }
     });
   }
