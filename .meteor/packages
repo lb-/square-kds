@@ -5,9 +5,9 @@
 # but you can also edit it by hand.
 
 meteor-platform
-semantic:ui-css
 http
 momentjs:moment
 lbee:moment-helpers
 dburles:collection-helpers
 meteorhacks:picker
+nooitaf:semantic-ui
