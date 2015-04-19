@@ -1,12 +1,18 @@
 "use strict";
 
-Template.nav.onCreated = function () {
-  Session.setDefault('view', 'current');
-};
-
 Template.nav.events({
   'click [data-action="change-view"]': function (event) {
     Session.set('view', event.target.dataset.view);
+  },
+  'click [data-action="square-sync"]': function (event) {
+    Meteor.call('squareGetPayments', function (error) {
+      if (error) {
+        toastr.warning(error.message);
+      } else {
+        toastr.info('Sync started');
+      }
+    });
+
   }
 });
 
