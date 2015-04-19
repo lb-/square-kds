@@ -3,7 +3,8 @@
     <div class="content">
       <i class="right floated {{#if getIsOld}}warning{{else}}star{{/if}} icon"></i>
       <div class="header">
-        {{moFrom getCreatedAt moNow}}
+        {{paymentNote}}
+        <small>{{moFrom getCreatedAt moNow}}</small>
       </div>
       <div class="description">
         <div class="ui divided list">
