@@ -2,9 +2,6 @@
 
 Template.main.onCreated(function () {
   this.subscribe('payments', {});
-  Meteor.setInterval(function () {
-    Meteor.call('squareGetPayments')
-  }, 5000);
 });
 
 Template.main.helpers({
